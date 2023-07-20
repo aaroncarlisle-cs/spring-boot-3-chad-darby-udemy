@@ -1,5 +1,6 @@
-package dev.acarlisle.springcoredemo;
+package dev.acarlisle.springcoredemo.rest;
 
+import dev.acarlisle.springcoredemo.common.Coach;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,4 +1,4 @@
-package dev.acarlisle.springcoredemo;
+package dev.acarlisle.springcoredemo.common;
 
 public interface Coach {
     String getDailyWorkout();
