@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     private Coach myCoach;
-
-    public DemoController(@Qualifier("cricketCoach") Coach myCoach) {
-        this.myCoach = myCoach;
-    }
+    private Coach anotherCoach;
 
     @Autowired
-
+    public DemoController(@Qualifier("cricketCoach") Coach myCoach,
+                          @Qualifier("cricketCoach") Coach anotherCoach) {
+        this.myCoach = myCoach;
+        this.anotherCoach = anotherCoach;
+    }
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
