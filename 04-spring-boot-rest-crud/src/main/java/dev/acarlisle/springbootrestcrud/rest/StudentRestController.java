@@ -1,6 +1,7 @@
 package dev.acarlisle.springbootrestcrud.rest;
 
 import dev.acarlisle.springbootrestcrud.entity.Student;
+import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,17 +13,20 @@ import java.util.List;
 @RequestMapping("/api")
 public class StudentRestController {
 
+    private List<Student> theStudents;
+
+    // define @PostConstruct to load the student data...only once!
+    @PostConstruct
+    public void loadData() {
+        theStudents.add(new Student("Poornima", "Patel"));
+        theStudents.add(new Student("Mario", "Rossi"));
+        theStudents.add(new Student("Mary", "Smith"));
+    }
+
     // define an endpoint for /students - return a list of students
 
     @GetMapping("/students")
     public List<Student> getStudents() {
-
-        List<Student> students = new ArrayList<>();
-
-        students.add(new Student("Poornima", "Patel"));
-        students.add(new Student("Mario", "Rossi"));
-        students.add(new Student("Mary", "Smith"));
-
-        return students;
+        return theStudents;
     }
 }
