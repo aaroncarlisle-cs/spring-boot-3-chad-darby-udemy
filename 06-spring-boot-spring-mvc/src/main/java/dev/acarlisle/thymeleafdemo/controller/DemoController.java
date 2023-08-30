@@ -13,6 +13,6 @@ public class DemoController {
 
         theModel.addAttribute("theDate", new java.util.Date());
 
-        return "Hello World!";
+        return "helloworld";
     }
 }
